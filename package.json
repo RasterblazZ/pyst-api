@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "name": "pyst-api",
+  "version": "1.0.0",
+  "description": "pyst api rest",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "rasterblazz",
+  "license": "ISC"
+}
