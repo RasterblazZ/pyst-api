@@ -1,14 +1,20 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 const express = require('express');
 const app = express();
-const PORT = 3002;
+const PORT = process.env.APP_PORT || 3000;
 
 // Middleware para analizar el cuerpo de las solicitudes en formato JSON
 app.use(express.json());
 
-// Ruta
-app.get('/', (req, res) => {
-  res.send('¡Hola, mundo!');
-});
+// Importar rutas
+const indexRoutes = require('./routes/index');
+const paymentRoutes = require('./routes/payments');
+
+// Usar rutas
+app.use('/', indexRoutes);
+app.use('/payments', paymentRoutes);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
