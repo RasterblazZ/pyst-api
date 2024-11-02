@@ -11,10 +11,12 @@ app.use(express.json());
 // Importar rutas
 const indexRoutes = require('./routes/index');
 const paymentRoutes = require('./routes/payments');
+const SubscriptionTypeRoutes = require('./routes/subscriptionType');
 
 // Usar rutas
 app.use('/', indexRoutes);
 app.use('/payments', paymentRoutes);
+app.use('/paymentType', SubscriptionTypeRoutes);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
