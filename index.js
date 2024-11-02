@@ -14,6 +14,7 @@ const paymentRoutes = require('./routes/payments');
 const SubscriptionTypeRoutes = require('./routes/subscriptionType');
 const CurrencyRoutes = require('./routes/currencyRoute');
 const SubscriptionRoutes = require('./routes/subscriptionRoute');
+const diaryRoutes = require('./routes/diaryRoute');
 
 // Usar rutas
 app.use('/', indexRoutes);
@@ -21,6 +22,7 @@ app.use('/payments', paymentRoutes);
 app.use('/paymentType', SubscriptionTypeRoutes);
 app.use('/currency', CurrencyRoutes);
 app.use('/subscription', SubscriptionRoutes);
+app.use('/diary', diaryRoutes);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
