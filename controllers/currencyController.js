@@ -1,31 +1,31 @@
 // controllers/paymentController.js
-const Payment = require('../models/Payment');
+const Currency = require('../models/Currency');
 
 // Controlador para obtener todos los pagos
-const getAllPayments = async (req, res) => {
+const getAll = async (req, res) => {
   try {
-    const payments = await Payment.findAll();
-    res.json(payments);
+    const row = await Currency.findAll();
+    res.json(row);
   } catch (error) {
     res.status(500).json({ error: 'Error al obtener los pagos' });
   }
 };
 
 // Controlador para crear un nuevo pago
-const createPayment = async (req, res) => {
+const create = async (req, res) => {
   try {
-    const { nombre, monto, monthDay } = req.body;
-    const newPayment = await Payment.create({ nombre, monto, monthDay });
-    res.status(201).json(newPayment);
+    const { name, currency } = req.body;
+    const newRow = await Currency.create({ name, currency });
+    res.status(201).json(newRow);
   } catch (error) {
     res.status(500).json({ error: 'Error al crear el pago' });
   }
 };
 
 // Controlador para borrar todos los pagos
-const deleteAllPayments = async (req, res) => {
+const deleteAll = async (req, res) => {
   try {
-    await Payment.destroy({ where: {} });
+    await Currency.destroy({ where: {} });
     res.json({ message: 'Todos los pagos han sido eliminados' });
   } catch (error) {
     res.status(500).json({ error: 'Error al eliminar los pagos' });
@@ -33,7 +33,7 @@ const deleteAllPayments = async (req, res) => {
 };
 
 module.exports = {
-  getAllPayments,
-  createPayment,
-  deleteAllPayments,
+    getAll,
+    create,
+    deleteAll,
 };

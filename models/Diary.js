@@ -6,20 +6,20 @@ class Diary extends Model {}
 
 Diary.init({
   id_diary: {
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
   account_type: {
-    type: Sequelize.CHAR(10),
+    type: DataTypes.CHAR(10),
     allowNull: false
   },
   diary_date: {
-    type: Sequelize.DATE,
+    type: DataTypes.DATE,
     allowNull: false
   },
   amount: {
-    type: Sequelize.DECIMAL(5, 2),
+    type: DataTypes.DECIMAL(5, 2),
     allowNull: false
   }
 }, {

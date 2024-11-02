@@ -6,43 +6,43 @@ class Subscription extends Model {}
 
 Subscription.init({
     id_subscription: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
     },
     Tipo: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
     },
     Nombre: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         unique: true,
         allowNull: false,
     },
     MonthDay: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
     },
     Monto: {
         allowNull: false,
-        type: Sequelize.FLOAT,
+        type: DataTypes.FLOAT,
     },
     Moneda: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
     },
     Estatus: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
     },
     Creado: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
     },
     Cancelado: {
         allowNull: true,
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
     },
     
 }, {
