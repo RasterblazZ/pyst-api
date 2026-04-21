@@ -22,4 +22,7 @@ export class User {
 
   @Column()
   favorite_currency!: string;
+
+  @Column()
+  password!: string;
 }
