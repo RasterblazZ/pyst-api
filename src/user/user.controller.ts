@@ -20,7 +20,8 @@ export class UserController {
             email: 'john.doe@example.com',
             country: 'USA',
             language: 'English',
-            favorite_currency: 'USD'
+            favorite_currency: 'USD',
+            password: 'password123',
         });
     }
 }
