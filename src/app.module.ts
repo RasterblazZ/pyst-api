@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { CurrencyModule } from './currency/currency.module';
 import { SubscriptionTypeModule } from './subscription-type/subscription-type.module';
+import { SubscriptionModule } from './subscription/subscription.module';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -24,6 +25,7 @@ dotenv.config();
     UserModule,
     CurrencyModule,
     SubscriptionTypeModule,
+    SubscriptionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
