@@ -6,6 +6,9 @@ import { UserModule } from './user/user.module';
 import { CurrencyModule } from './currency/currency.module';
 import { SubscriptionTypeModule } from './subscription-type/subscription-type.module';
 import { SubscriptionModule } from './subscription/subscription.module';
+import { UserSubscriptionModule } from './user-subscription/user-subscription.module';
+import { UserDiaryModule } from './user-diary/user-diary.module';
+import { UserEarningModule } from './user-earning/user-earning.module';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -26,6 +29,9 @@ dotenv.config();
     CurrencyModule,
     SubscriptionTypeModule,
     SubscriptionModule,
+    UserSubscriptionModule,
+    UserDiaryModule,
+    UserEarningModule,
   ],
   controllers: [AppController],
   providers: [AppService],
