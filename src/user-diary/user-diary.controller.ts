@@ -1,4 +1,4 @@
-import { Controller, Get, Put } from '@nestjs/common';
+import { Controller, Get, Put, Body } from '@nestjs/common';
 import { UserDiaryService } from './user-diary.service';
 
 @Controller('user-diary')
@@ -11,14 +11,17 @@ export class UserDiaryController {
     }
 
     @Put()
-    create() {
+    create(@Body() userDiaryData: any) {
+        if (!userDiaryData.id_user || !userDiaryData.id_currency || !userDiaryData.type || !userDiaryData.date || !userDiaryData.name || !userDiaryData.amount) {
+            throw new Error('Missing required fields');
+        }
         return this.userDiaryService.create({
-            id_user: 1,
-            id_currency: 1,
-            type: 1,
-            date: new Date(),
-            name: 'Diary Entry 1',
-            amount: 100,
+            id_user: userDiaryData.id_user,
+            id_currency: userDiaryData.id_currency,
+            type: userDiaryData.type,
+            date: userDiaryData.date,
+            name: userDiaryData.name,
+            amount: userDiaryData.amount,
         });
     }
 }

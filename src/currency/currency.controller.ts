@@ -1,4 +1,4 @@
-import { Controller, Get , Put } from '@nestjs/common';
+import { Controller, Get , Put, Body} from '@nestjs/common';
 import { CurrencyService } from './currency.service';
 
 
@@ -13,11 +13,16 @@ export class CurrencyController {
     }
 
     @Put()
-    create() {
+    create(@Body() currencyData: any) {
+        if (!currencyData.name || !currencyData.abbreviation) {
+            return {
+                error: 'Missing required fields: name and abbreviation'
+            }
+        }
         // use the CurrencyService to create a new currency in the database
         return this.currencyService.create({
-            name: 'US Dollar',
-            abbreviation: 'USD'
+            name: currencyData.name,
+            abbreviation: currencyData.abbreviation
         });
     }
 }

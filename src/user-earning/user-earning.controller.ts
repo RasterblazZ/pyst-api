@@ -1,4 +1,4 @@
-import { Controller, Get, Put } from '@nestjs/common';
+import { Controller, Get, Put, Body } from '@nestjs/common';
 import { UserEarningService } from './user-earning.service';
 
 @Controller('user-earning')
@@ -11,14 +11,19 @@ export class UserEarningController {
     }
 
     @Put()
-    create() {
+    create(@Body() userEarningData: any) {
+        if (!userEarningData.id_user || !userEarningData.id_currency || !userEarningData.name || !userEarningData.frecuency || !userEarningData.day_number || !userEarningData.amount) {
+            return {
+                error: 'Missing required fields'
+            };
+        }
         return this.userEarningService.create({
-            id_user: 1,
-            id_currency: 1,
-            name: 'Earning 1',
-            frecuency: 'monthly',
-            day_number: 1,
-            amount: 100,
+            id_user: userEarningData.id_user,
+            id_currency: userEarningData.id_currency,
+            name: userEarningData.name,
+            frecuency: userEarningData.frecuency,
+            day_number: userEarningData.day_number,
+            amount: userEarningData.amount,
         });
     }
 }

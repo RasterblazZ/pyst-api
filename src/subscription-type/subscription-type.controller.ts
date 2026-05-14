@@ -1,4 +1,4 @@
-import { Controller, Get, Put } from '@nestjs/common';
+import { Controller, Get, Put, Body } from '@nestjs/common';
 import { SubscriptionTypeService } from './subscription-type.service';
 
 @Controller('subscription-type')
@@ -12,10 +12,15 @@ export class SubscriptionTypeController {
     }
 
     @Put()
-    create() {
+    create(@Body() subscriptionTypeData: any) {
+        if (!subscriptionTypeData.name) {
+            return {
+                error: 'Missing required fields: name'
+            }
+        }
         // use the SubscriptionTypeService to create a new subscription type in the database
         return this.subscriptionTypeService.create({
-            name: 'Plataformas',
+            name: subscriptionTypeData.name
         });
     }
 }
